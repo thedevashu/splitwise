@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "users_group")
+@Entity(name="group_table")
 public class Group {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +30,6 @@ public class Group {
 			)
 	private List<User> users;
 	@ElementCollection
-	private List<Expense> expenses;
+	private List<Expense> expenses;  
 
 }

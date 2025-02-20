@@ -2,6 +2,8 @@ package com.splitwise.app.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,6 +28,7 @@ public class User {
 	private String userEmail;
 	
 	@ManyToMany(mappedBy = "users")
+	@JsonBackReference
 	private List<Group> groups;
 	
 	@ManyToMany(mappedBy = "participants")
