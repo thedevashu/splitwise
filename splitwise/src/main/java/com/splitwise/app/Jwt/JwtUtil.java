@@ -1,4 +1,4 @@
-package com.splitwise.Jwt;
+package com.splitwise.app.Jwt;
 
 import java.util.Date;
 
