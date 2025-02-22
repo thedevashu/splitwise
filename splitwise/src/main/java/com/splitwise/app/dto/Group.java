@@ -2,6 +2,8 @@ package com.splitwise.app.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,6 +30,7 @@ public class Group {
 			joinColumns = @JoinColumn(name="group_id"),
 			inverseJoinColumns = @JoinColumn(name="user_id")
 			)
+	@JsonManagedReference
 	private List<User> users;
 	@ElementCollection
 	private List<Expense> expenses;  

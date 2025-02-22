@@ -22,5 +22,9 @@ public class UserController {
         userManager.createUser(user);
         return "ok";
     }
+
+    
+
+
     
 }
