@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.splitwise.app.Repositry.GroupRepo;
 import com.splitwise.app.dto.Group;
-import com.splitwise.app.dto.User;
+import com.splitwise.app.dto.Users;
 
 @Service
 public class GroupManager {
@@ -14,7 +14,7 @@ public class GroupManager {
     public void createGroup(Group group) {
         groupRepo.save(group);
     }
-    public Group addUser(User user, Long groupId) {
+    public Group addUser(Users user, Long groupId) {
         Group group = groupRepo.findById(groupId).get();
         group.getUsers().add(user);
         return groupRepo.save(group);

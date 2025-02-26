@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.splitwise.app.dto.Group;
-import com.splitwise.app.dto.User;
+import com.splitwise.app.dto.Users;
 import com.splitwise.app.service.GroupManager;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,7 +27,7 @@ public class GroupController {
         return "ok";
     }
     @PutMapping("addUser/{id}")
-    public Group putMethodName(@PathVariable Long id, @RequestBody User user) {
+    public Group putMethodName(@PathVariable Long id, @RequestBody Users user) {
         //TODO: process PUT request
         
         return groupManager.addUser(user, id);

@@ -72,7 +72,7 @@ public class Expense {
 
     @ManyToOne
     @JoinColumn(name = "payee_user_id")
-    private User payeeUser;  // Renamed for clarity and consistency with naming conventions
+    private Users payeeUser;  // Renamed for clarity and consistency with naming conventions
 
     @ManyToMany
     @JoinTable(
@@ -80,7 +80,7 @@ public class Expense {
         joinColumns = @JoinColumn(name = "expense_id"),  // Fixed the typo here
         inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    private List<User> participants;
+    private List<Users> participants;
 
     private String description;
 }
