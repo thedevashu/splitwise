@@ -3,6 +3,9 @@ package com.splitwise.app.dto;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,6 +22,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 
+// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "userId")
+
 public class User {
 	
 	@Id
@@ -26,12 +31,14 @@ public class User {
 	private Long userId;
 	private String userName;
 	private String userEmail;
+	private String password;
 	
 	@ManyToMany(mappedBy = "users")
-	@JsonBackReference
+
 	private List<Group> groups;
 	
 	@ManyToMany(mappedBy = "participants")
+	@JsonBackReference
 	private List<Expense> expenses;
 	
 	

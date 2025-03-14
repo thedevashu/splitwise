@@ -19,4 +19,9 @@ public class GroupManager {
         group.getUsers().add(user);
         return groupRepo.save(group);
     }
+    public Group getGroup(Long groupId) {
+        // TODO Auto-generated method stub
+        return groupRepo.findById(groupId).get();
+    }
+
 }

@@ -1,5 +1,8 @@
 package com.splitwise.app.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,5 +16,16 @@ public class UserManager {
 
     public void createUser(User user) {
         userRepo.save(user);
+    }
+
+    public Optional<User> getUserById(Long userId) {
+        // TODO Auto-generated method stub
+        return userRepo.findById(userId);
+        
+    }
+
+    public List<User> getAllUsers() {
+        // TODO Auto-generated method stub
+        return userRepo.findAll();
     }
 }

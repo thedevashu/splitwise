@@ -1,6 +1,7 @@
 package com.splitwise.app.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.splitwise.app.dto.Group;
@@ -22,15 +23,15 @@ public class GroupController {
     GroupManager groupManager;
     
     @PostMapping("/create")
-    public String createGroup(@RequestBody Group group) {
+    public ResponseEntity createGroup(@RequestBody Group group) {
         groupManager.createGroup(group);
-        return "ok";
+        return ResponseEntity.ok(group);
     }
-    @PutMapping("addUser/{id}")
-    public Group putMethodName(@PathVariable Long id, @RequestBody User user) {
+    @PostMapping("addUser/{id}")
+    public Group putMethodName(@PathVariable("id") Long groupId, @RequestBody User user) {
         //TODO: process PUT request
         
-        return groupManager.addUser(user, id);
+        return groupManager.addUser(user, groupId);
     }
     
 }

@@ -2,6 +2,10 @@ package com.splitwise.app.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,6 +21,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name="group_table")
+// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "groupId")
+
 public class Group {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,8 +34,10 @@ public class Group {
 			joinColumns = @JoinColumn(name="group_id"),
 			inverseJoinColumns = @JoinColumn(name="user_id")
 			)
+	@JsonBackReference
 	private List<User> users;
 	@ElementCollection
+	
 	private List<Expense> expenses;  
 
 }
